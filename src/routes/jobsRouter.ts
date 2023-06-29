@@ -3,12 +3,13 @@
 
 
 import express, { Request, Response } from 'express';
-import { getJobs, createJob, updateJob, deleteJob } from '../controllers/jobsController';
-
+import { getJobs, getJobById,createJob, updateJob, deleteJob } from '../controllers/jobsController';
 const jobRouter = express.Router();
 
 // Retrieve all jobs
 jobRouter.get('/', getJobs);
+
+jobRouter.get('/:id', getJobById);
 
 // Create a new job
 jobRouter.post('/', createJob);

@@ -16,12 +16,44 @@ export const createJob = async (req: Request, res: Response) => {
       companyLogo,
     });
     const savedJob = await job.save();
+    console.log("job added succesfully ")
     
     res.status(201).json(savedJob);
   } catch (error) {
     res.status(500).json({ message: 'Failed to create job', error });
   }
 };
+
+
+
+
+
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//TODO
+//try companylogo as image
+// export const createJob = async (req: Request, res: Response) => {
+//   try {
+//     const { name, status, jobLocation, companyDescription, jobDescription, requirements } = req.body;
+//     const companyLogo = req.file; // Get the uploaded file from the request object
+    
+//     const job = new Job({
+//       name,
+//       status,
+//       jobLocation,
+//       companyDescription,
+//       jobDescription,
+//       requirements,
+//       companyLogo,
+//     });
+
+//     const savedJob = await job.save();
+//     res.status(201).json(savedJob);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Failed to create job', error });
+//   }
+// };
 
 
 // עדכון משרה קיימת
@@ -88,4 +120,5 @@ export const deleteJob = async (req: Request, res: Response) => {
       res.status(500).json({ message: 'Failed to delete job', error });
     }
   };
+
   
